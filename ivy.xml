@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+ <info organisation="in.ex" module="ivy-example" status="integration">
+ </info>
+ <dependencies>
+  <dependency org="commons-lang" name="commons-lang" rev="2.6" />
+  <dependency org="info.cukes" name="cucumber-core" rev="1.2.5"/>
+  <dependency org="info.cukes" name="cucumber-java" rev="1.2.5"/>
+  <dependency org="info.cukes" name="cucumber-junit" rev="1.2.5"/>
+  <dependency org="info.cukes" name="gherkin" rev="2.12.2"/>
+  <dependency org="org.seleniumhq.selenium" name="selenium-server" rev="2.49.0"/>
+ </dependencies>
+</ivy-module>

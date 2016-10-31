@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(dryRun=false,features="src\\feature",glue={"stepdefinition"},
-monochrome=true,tags={"@Browser2,@Run"})
+monochrome=true,tags={"@Browser2,@Browser1"})
 
 public class TestRunner {
 

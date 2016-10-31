@@ -5,13 +5,13 @@
      description="Execution on cucumber"                   
      khomane                                                                
      ====================================================================== -->
-<project name="project" basedir="." default="test">
+<project name="project" basedir="." default="test" xmlns:ivy="antlib:org.apache.ivy.ant">
 <property name="src.dir" value="src/"/>	
 <property name="out.dir" value="output"/>
 <property name="jar.dir" value="lib"/>	
 <property name = "full-compile" value = "true" />
 	
-<target name="clean">
+<target name="clean" depends="resolve">
 	<echo> "Deleting directory" </echo>
 	<delete dir="${out.dir}">
 	</delete>
@@ -22,31 +22,28 @@
 		<mkdir dir="${out.dir}"/>
 </target>
 	
-<path id="master-classpath">
-	<pathelement location="${jar.dir}/selenium-server-standalone-2.48.2.jar" />
-	<pathelement location="${jar.dir}/cucumber-core-1.2.4.jar" />	
-	<pathelement location="${jar.dir}/cucumber-java-1.2.4.jar" />
-	<pathelement location="${jar.dir}/cucumber-junit-1.2.4.jar" />
-	<pathelement location="${jar.dir}/cucumber-jvm-deps-1.0.5.jar" />
-	<pathelement location="${jar.dir}/cucumber-reporting-1.2.0-javadoc.jar" />
-	<pathelement location="${jar.dir}/gherkin-2.12.2.jar" />
-	<pathelement location="${jar.dir}/gherkin-2.12.2.jar" />
+<path id="master-classpath">	
 	<pathelement location="${out.dir}" />
-	<pathelement location="${jar.dir}/junit-4.12" />
-</path>	
+</path>		
 	
 <target name="compile" depends="mkdir">
 	<echo>"Compliing source files"</echo>
 	<javac srcdir="${src.dir}" destdir="${out.dir}" includeantruntime="true" verbose = "${full-compile}">
-	<classpath refid="master-classpath"/>	
+	<classpath refid="default.classpath" />
 	</javac>
 </target>	
 
 <target name = "test" depends = "compile">
      <junit>   	
+     	<classpath refid="default.classpath"/>
      	<classpath refid="master-classpath"/>
      	<test name = "runner.TestRunner" />
      </junit>
 </target>
+	
+<target name="resolve"  description="resolve dependencies with ivy">
+	<ivy:resolve />
+	<ivy:cachepath pathid="default.classpath" />
+</target>		
 	
 </project>
