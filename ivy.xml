@@ -11,5 +11,6 @@
   <dependency org="info.cukes" name="cucumber-junit" rev="1.2.5"/>
   <dependency org="info.cukes" name="gherkin" rev="2.12.2"/>
   <dependency org="org.seleniumhq.selenium" name="selenium-server" rev="2.49.0"/>
+  <dependency org="junit" name="junit" rev="4.12" />  
  </dependencies>
 </ivy-module>

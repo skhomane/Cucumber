@@ -16,6 +16,7 @@ import cucumber.api.java.en.When;
 public class TestStep {
 	
 	public static WebDriver driver=null; 
+	
 	WebElement em;
 	
 	@Given("^User is on google page of chrome$")
@@ -25,7 +26,7 @@ public class TestStep {
 		driver.get("https://www.google.co.in");
 	}
 	
-	@Given("^User is on google page of IE$")
+	@Given("^User is on google page of IE Browser$")
 	public void user_is_on_google_page_of_IE() throws Throwable {
 		driver=DriverUnit.setup_IEDriver();		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
